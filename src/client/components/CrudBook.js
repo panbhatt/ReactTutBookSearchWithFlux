@@ -7,6 +7,8 @@ import Select from 'muicss/lib/react/select';
 import Input from 'muicss/lib/react/input';
 import Button from 'muicss/lib/react/button';
 
+import { BookActions } from './../actions' ;
+
 export default class CrudBook extends React.Component {
 
   constructor(props) {
@@ -26,6 +28,7 @@ export default class CrudBook extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    console.log("COMING in new props") ;
     this.setState({ title :newProps.book && newProps.book.id >=0 ? newProps.book.title : "Title" ,
                     bookPresent : newProps.book && newProps.book.id  >=0
                     })
@@ -37,6 +40,7 @@ export default class CrudBook extends React.Component {
           bookPresent : false
     });
   }
+
 
   handleDelete(ev,id){
       ev.preventDefault();
@@ -64,8 +68,7 @@ export default class CrudBook extends React.Component {
             title :    this.titleInput.controlEl.value,
             category : this.categoryInput.controlEl.value
           } ;
-          console.log(newBook) ;
-      this.props.onAdd(newBook);
+        BookActions.add(newBook);
 
   }
 

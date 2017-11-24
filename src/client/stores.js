@@ -11,7 +11,6 @@ class AppStore extends EventEmitter {
       this.emit('change') ;
     }
     addChangeListener(callback)  {
-      console.log("Adding Change listeners") ;
       this.on('change',callback) ;
     }
     removeChangeListener(callback){
@@ -45,6 +44,24 @@ let _reloadBooks = ()=> {
 
 }
 
+let _addBook = (newBook)=> {
+  console.log("Calling STORE Add FUNCTION ") ;
+  let bookObj = { id : ++_state.currentId,
+    ...newBook
+  };
+  _state.books.push(bookObj) ;
+  _state.bookList.push(bookObj)
+  BookStore.emitChange();
+}
+
+let _editBook = (id)=> {
+
+  let bookObj = _state.books.filter((book)=> book.id == id );
+  console.log(JSON.stringify(bookObj[0])) ;
+  _state.currentBook = bookObj[0];
+  BookStore.emitChange();
+}
+
 AppDispatcher.register((action)=> {
 
     switch(action.actionType) {
@@ -54,6 +71,12 @@ AppDispatcher.register((action)=> {
           break;
         case BookConstants.ADD_BOOK :
           console.log("COMING IN THE ADD BOOK FLUX Function") ;
+          _addBook( { title : action.title,
+                      category : action.category });
+          break;
+        case BookConstants.EDIT_LINK_UPDATE :
+          console.log("COMING IN THE EDIT BOOK FLUX Function") ;
+          _editBook( action.id);
           break;
 
     }

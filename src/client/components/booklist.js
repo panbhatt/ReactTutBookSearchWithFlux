@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {BookActions} from './../actions' ;
+
 export default class BookList extends React.Component {
 
     constructor(props){
@@ -10,7 +12,7 @@ export default class BookList extends React.Component {
 
     handleEdit(event,id) {
         event.preventDefault();
-        this.props.onEdit(id);
+        BookActions.editBook(id); 
     }
 
     render(){

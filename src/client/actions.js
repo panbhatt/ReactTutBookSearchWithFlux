@@ -13,19 +13,28 @@ var BookActions = {
         });
       },
 
+    add(data) {
+      console.log("CMING HERE in action.js add book function") ;
+        AppDispatcher.dispatch({
+        actionType : BookConstants.ADD_BOOK,
+        ...data
+        });
+      },
+
+      editBook(bookId) {
+        console.log("CMING HERE in action.js EDIT book function") ;
+          AppDispatcher.dispatch({
+          actionType : BookConstants.EDIT_LINK_UPDATE,
+          id : bookId
+          });
+        },
+
       update(data) {
         AppDispatcher.dispatch({
         actionType : BookConstants.UPDATE_BOOK,
         ...data
         });
       },
-
-      add(data) {
-        AppDispatcher.dispatch({
-        actionType : BookConstants.ADD_BOOK,
-        ...data
-        });
-      }
 
 }
 

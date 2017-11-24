@@ -15,11 +15,6 @@ export default class Home extends React.Component {
 
     constructor(props) {
       super(props);
-      this.handleSearchClick = this.handleSearchClick.bind(this);
-      this.handleEditClick = this.handleEditClick.bind(this);
-      this.handleBookDelete = this.handleBookDelete.bind(this);
-      this.handleBookUpdate = this.handleBookUpdate.bind(this);
-      this.handleBookAdd = this.handleBookAdd.bind(this);
       this.onChange = this.onChange.bind(this);
 
       this.state = BookStore.getState();
