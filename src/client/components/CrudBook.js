@@ -58,7 +58,7 @@ export default class CrudBook extends React.Component {
             id ,
             title :    this.titleInput.controlEl.value
           } ;
-      this.props.onUpdate(updateBook);
+    BookActions.update(updateBook) ;
 
   }
 

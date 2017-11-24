@@ -62,6 +62,25 @@ let _editBook = (id)=> {
   BookStore.emitChange();
 }
 
+
+let _updateBook = (data)=> {
+
+  let bookObj = _state.books.filter((book)=> book.id == data.id );
+  let book = bookObj[0] ;
+  book.title = data.title;
+  _state.books = _state.books.map((book) => {
+          if(book.id == data.id) {
+            book.title = data.title;
+          } return book;
+  }) ;
+  _state.bookList = _state.bookList.map((book) => {
+          if(book.id == data.id) {
+            book.title = data.title;
+          } return book;
+  }) ;
+  BookStore.emitChange();
+}
+
 AppDispatcher.register((action)=> {
 
     switch(action.actionType) {
@@ -78,6 +97,13 @@ AppDispatcher.register((action)=> {
           console.log("COMING IN THE EDIT BOOK FLUX Function") ;
           _editBook( action.id);
           break;
+
+        case BookConstants.UPDATE_BOOK :
+          console.log("COMING IN THE UPDATE BOOK FLUX Function") ;
+          _updateBook( { id : action.id,
+                          title : action.title} );
+          break;
+
 
     }
 
