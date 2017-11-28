@@ -35,6 +35,12 @@ var BookActions = {
         ...data
         });
       },
+      delete(data) {
+        AppDispatcher.dispatch({
+        actionType : BookConstants.DELETE_BOOK,
+        ....data
+        });
+      },
 
 }
 
