@@ -14,10 +14,10 @@ This is a react based application where we are creating some sample components a
 5. run "http-server" in the dist folder (in another shell/window) 
 6. open http://localhost:8080 and it will display a sample application. 
   Image 1: 
-   <<<<   >>>>>>
+   ![](https://github.com/panbhatt/ReactTutBookSearchWithFlux/blob/master/images/initial_image.JPG)
 
   Image 2: 
-   <<<<   >>>>>>	
+   ![](https://github.com/panbhatt/ReactTutBookSearchWithFlux/blob/master/images/FLUX_image.jpg)	
 
 Click around to play with the various functionality available. 
 
