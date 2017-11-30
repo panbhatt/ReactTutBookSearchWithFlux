@@ -44,11 +44,7 @@ export default class CrudBook extends React.Component {
 
   handleDelete(ev,id){
       ev.preventDefault();
-      this.setState({
-            title : 'Book Title',
-            bookPresent : false
-      });
-      this.props.onDelete(id);
+      BookActions.delete({id}) ;
 
   }
 
