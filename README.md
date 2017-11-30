@@ -42,6 +42,18 @@ Click around to play with the various functionality available.
 - **CrudBook.js** - This file will contain all the CRUD related operations on the UI like Add/Delete/Update. This is present in the right side of the application. This will selectively show Add/Update/Delete button based upon the state of the components. It will dispatch all the actions to bookActions present in the actions.js file with the corressponding Event and Data associated with it. 
 - **searchbox.js** - This component will contain the search box present on the top left of the UI to filter down the search results based upon the SEARCHTEXT entered. It will dispatch all the actions to bookActions present in the actions.js file with the corressponding Event and Data associated with it.   
 
+###Flow Description###
+
+----------
+
+
+		user action/callback etc ->
+			component calls action ->
+			    dispatcher informes stores ->
+		    		stores set their state ->
+		        		state holding components are notified and update their state ->
+		          			all other components are updated through properties
+
 ###Links:
 [https://medium.com/a-beginners-guide-for-webpack-2](https://medium.com/a-beginners-guide-for-webpack-2 "WebPack  2- Begineers Guide, Good one")
 
